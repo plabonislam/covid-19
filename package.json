@@ -2,6 +2,12 @@
   "name": "covid-19",
   "version": "0.1.0",
   "private": true,
+
+"engines":{
+    "node":"8.17.0",
+    "npm":"6.13.4"
+  },
+
   "dependencies": {
     "@material-ui/core": "^4.11.0",
     "@testing-library/jest-dom": "^4.2.4",
@@ -16,6 +22,7 @@
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1"
   },
+
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
