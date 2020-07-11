@@ -6,9 +6,8 @@ import { Bar } from "react-chartjs-2";
 
 const Chart = ({ get:{confirmed,recovered,deaths}, getcountry }) => {
   const [daily, setDaily] = useState([]);
-  const options = {
-    maintainAspectRatio: false, // Don't maintain w/h ratio
-  };
+
+ 
 
   useEffect(() => {
     const da = async () => {
@@ -23,6 +22,11 @@ const Chart = ({ get:{confirmed,recovered,deaths}, getcountry }) => {
   }, []);
 console.log("now data are here",confirmed,getcountry)
 
+
+
+ const options = {
+   maintainAspectRatio: false, // Don't maintain w/h ratio
+ };
 
 
 const lineChart=( getcountry?null:(<Line
@@ -46,19 +50,22 @@ const lineChart=( getcountry?null:(<Line
           options={options}
         />));
     
+let active=0;
+if(getcountry)
+   active=confirmed.value-(deaths.value + recovered.value );
 const barhart = getcountry ? (
   <Bar
     data={{
-      labels: ["Confirmed", "Deaths", "Recovered"],
+      labels: ["Confirmed", "Deaths", "Recovered","Active"],
       datasets: [
         {
-          label: "My First dataset",
-          backgroundColor: ["rgba(255,99,132,0.2)", "#2767cf", "#7bab96"],
-          borderColor: ["rgba(255,99,132,1)", "#404b5c", "#404b5c"],
+          label: "CoVid-19 Diagram for " + getcountry,
+          backgroundColor: ["green", "#2767cf", "#7bab96","red"],
+          borderColor: ["rgba(255,99,132,1)", "#404b5c", "#404b5c","red"],
           borderWidth: 1,
           hoverBackgroundColor: "rgba(255,99,132,0.4)",
           hoverBorderColor: "rgba(255,99,132,1)",
-          data: [confirmed.value, deaths.value, recovered.value],
+          data: [confirmed.value, deaths.value, recovered.value, active],
         },
       ],
     }}

@@ -27,7 +27,7 @@ const Country = ({ handleChange }) => {
           SelectProps={{
             native: true,
           }}
-          helperText="Please select your currency"
+          helperText="Please select your Country"
           variant="outlined"
         >
           <option value="">GLOBAL</option>
