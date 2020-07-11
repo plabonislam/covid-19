@@ -1,26 +1,36 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import "./App.css";
+import { Cards, Chart, Country } from "./component/index";
 
-function App() {
+import { fetchData } from "./api";
+const App = () => {
+  const [get, set] = useState({});
+  const [getcountry, setcountry] = useState("");
+
+  useEffect(() => {
+    async function anyNameFunction() {
+      const datas = await fetchData();
+      console.log(datas, "app.js");
+      set(datas);
+    }
+    // Execute the created function directly
+    anyNameFunction();
+  }, []);
+  const handleChange = async (country) => {
+    console.log(country);
+    console.log("FALTU");
+    setcountry(country);
+    const datas = await fetchData(country);
+    console.log(datas);
+    set(datas);
+  };
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Cards get={get} />
+      <Country handleChange={handleChange} />
+      <Chart get={get} getcountry={getcountry} />
     </div>
   );
-}
+};
 
 export default App;
