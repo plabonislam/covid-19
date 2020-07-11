@@ -53,8 +53,8 @@ const barhart = getcountry ? (
       datasets: [
         {
           label: "My First dataset",
-          backgroundColor: "rgba(255,99,132,0.2)",
-          borderColor: "rgba(255,99,132,1)",
+          backgroundColor: ["rgba(255,99,132,0.2)", "#2767cf", "#7bab96"],
+          borderColor: ["rgba(255,99,132,1)", "#404b5c", "#404b5c"],
           borderWidth: 1,
           hoverBackgroundColor: "rgba(255,99,132,0.4)",
           hoverBorderColor: "rgba(255,99,132,1)",

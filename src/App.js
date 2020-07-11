@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
 import { Cards, Chart, Country } from "./component/index";
-
+import Navbar from "./component/navbar"
 import { BrowserRouter as Router, Route, Link ,Switch} from "react-router-dom";
 import { fetchData } from "./api";
 const App = () => {
@@ -30,6 +30,7 @@ const App = () => {
       <div className="App">
         <Switch>
           <Route exact path="/">
+            <Navbar />
             <Cards get={get} />
 
             <Country handleChange={handleChange} />

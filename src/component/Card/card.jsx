@@ -18,7 +18,6 @@ const Cards = ({ get: { confirmed, recovered, deaths, lastUpdate } }) => {
     console.log("..................");
     return "..loading";
   }
-  console.log("HEYYYYYYYYYYYYYY", confirmed.value);
 
   return (
     <div className={styles.container}>
