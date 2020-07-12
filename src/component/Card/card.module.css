@@ -8,7 +8,14 @@
 .infected{
 
     border-bottom: 5px solid green;
-        border-top: 5px solid green;
+    border-top: 5px solid green;
+
+}
+
+.inf{
+
+    border: 1px solid green;
+
 
 }
 @media(max-width: 770px){

@@ -65,8 +65,6 @@ const Chart = ({ get: { confirmed, recovered, deaths }, getcountry }) => {
           },
         ],
       }}
-      width={50}
-      height={50}
       options={{}}
     />
   ) : null;
